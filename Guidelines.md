@@ -61,7 +61,7 @@ Not all resources will support all methods, but all resources using the methods 
 
 Method  | Description                                                                                                                | Is Idempotent
 ------- | -------------------------------------------------------------------------------------------------------------------------- | -------------
-GET     | Return the current value of an object                                                                                      | True
+GET     | Return the current value of an object   or list sub-objects                                                                | True
 PUT     | Replace an object, or create a named object, when applicable                                                               | True
 DELETE  | Delete an object                                                                                                           | True
 POST    | Create a new object based on the data provided, or submit a command                                                        | False
