@@ -149,21 +149,8 @@ Content-Encoding   | All responses                                 | GZIP or DEF
 Preference-Applied | When specified in request                     | Whether a preference indicated in the Prefer request header was applied
 ETag               | When the requested resource has an entity tag | The ETag response-header field provides the current value of the entity tag for the requested variant. Used with If-Match, If-None-Match and If-Range to implement optimistic concurrency control.
 
-### 1.7. Custom headers
-Custom headers MUST NOT be required for the basic operation of a given API.
 
-Some of the guidelines in this document prescribe the use of nonstandard HTTP headers.
-In addition, some services MAY need to add extra functionality, which is exposed via HTTP headers.
-The following guidelines help maintain consistency across usage of custom headers.
-
-Headers that are not standard HTTP headers MUST have one of two formats:
-
-1. A generic format for headers that are registered as "provisional" with IANA ([RFC 3864][rfc-3864])
-2. A scoped format for headers that are too usage-specific for registration
-
-These two formats are described below.
-
-### 1.8. Specifying headers as query parameters
+### 1.7. Specifying headers as query parameters
 Some headers pose challenges for some scenarios such as AJAX clients, especially when making cross-domain calls where adding headers MAY not be supported.
 As such, some headers MAY be accepted as Query Parameters in addition to headers, with the same naming as the header:
 
@@ -173,12 +160,11 @@ The criteria for considering when to accept headers as parameters are:
 
 1. Any custom headers MUST be also accepted as parameters.
 2. Required standard headers MAY be accepted as parameters.
-3. Required headers with security sensitivity (e.g., Authorization header) MIGHT NOT be appropriate as parameters; the service owner SHOULD evaluate these on a case-by-case basis.
 
 The one exception to this rule is the Accept header.
 It's common practice to use a scheme with simple names instead of the full functionality described in the HTTP specification for Accept.
 
-### 1.9. PII parameters
+### 1.8. PII parameters
 Consistent with their organization's privacy policy, clients SHOULD NOT transmit personally identifiable information (PII) parameters in the URL (as part of path or query string) because this information can be inadvertently exposed via client, network, and server logs and other mechanisms.
 
 Consequently, a service SHOULD accept PII parameters transmitted as headers.
@@ -189,7 +175,7 @@ To address these limitations, services SHOULD also accept these PII parameters a
 Services that accept PII parameters -- whether in the URL or as headers -- SHOULD be compliant with privacy policy specified by their organization's engineering leadership.
 This will typically include recommending that clients prefer headers for transmission and implementations adhere to special precautions to ensure that logs and other service data collection are properly handled.
 
-### 1.10. Response formats
+### 1.9. Response formats
 For organizations to have a successful platform, they must serve data in formats developers are accustomed to using, and in consistent ways that allow developers to handle responses with common code.
 
 Web-based communication, especially when a mobile or other low-bandwidth client is involved, has moved quickly in the direction of JSON for a variety of reasons, including its tendency to be lighter weight and its ease of consumption with JavaScript-based clients.
@@ -198,7 +184,7 @@ JSON property names SHOULD be camelCased.
 
 Services SHOULD provide JSON as the default encoding.
 
-#### 1.10.1. Clients-specified response format
+#### 1.11.1. Clients-specified response format
 In HTTP, response format SHOULD be requested by the client using the Accept header.
 This is a hint, and the server MAY ignore it if it chooses to, even if this isn't typical of well-behaved servers.
 Clients MAY send multiple Accept headers and the service MAY choose one of them.
