@@ -7,13 +7,13 @@ This facilitates discovery and eases adoption on platforms without a well-suppor
 An example of a well-structured URL is:
 
 ```
-https://api.anvui.vn/v1.0/people/cto@anvui.vn/inbox
+https://api.acgroup.vn/v1.0/people/cto@acgroup.vn/inbox
 ```
 
 An example URL that is not friendly is:
 
 ```
-https://api.anvui.vn/EWS/OData/Users('cto@anvui.vn.com')/Folders('AAMkAadaDdiYzI1MjUzLTk4MjQtNDQ1Yy05YjJkLWNlMzMzYmIzNTY0MwAuAAAAAACzMsPHYH6HQoSwfdpDx-2bAQCXhUk6PC1dS7AERFluCgBfAAABo58UAAA=')
+https://api.acgroup.vn/EWS/OData/Users('cto@acgroup.vn.com')/Folders('AAMkAadaDdiYzI1MjUzLTk4MjQtNDQ1Yy05YjJkLWNlMzMzYmIzNTY0MwAuAAAAAACzMsPHYH6HQoSwfdpDx-2bAQCXhUk6PC1dS7AERFluCgBfAAABo58UAAA=')
 ```
 
 A frequent pattern that comes up is the use of URLs as values.
@@ -21,7 +21,7 @@ Services MAY use URLs as values.
 For example, the following is acceptable:
 
 ```
-https://api.anvui.vn/v1.0/items?url=https://resources.anvui.vn/shoes/fancy
+https://api.acgroup.vn/v1.0/items?url=https://resources.acgroup.vn/shoes/fancy
 ```
 
 ### 1.2. URL length
@@ -48,7 +48,7 @@ The stable identifier is not required to be a GUID.
 An example of a URL containing a canonical identifier is:
 
 ```
-https://api.anvui.vn/v1.0/people/7011042402/inbox
+https://api.acgroup.vn/v1.0/people/7011042402/inbox
 ```
 
 ### 1.4. Supported methods
@@ -77,14 +77,14 @@ POST operations SHOULD support the Location response header to specify the locat
 As an example, imagine a service that allows creation of hosted servers, which will be named by the service:
 
 ```http
-POST http://api.anvui.vn/account1/servers
+POST http://api.acgroup.vn/account1/servers
 ```
 
 The response would be something like:
 
 ```http
 201 Created
-Location: http://api.anvui.vn/account1/servers/server321
+Location: http://api.acgroup.vn/account1/servers/server321
 ```
 
 Where "server321" is the service-allocated server name.
@@ -93,7 +93,7 @@ Services MAY also return the full metadata for the created item in the response.
 
 #### 1.4.2. PATCH
 PATCH has been standardized by IETF as the method to be used for updating an existing object incrementally (see [RFC 5789][rfc-5789]).
-Anvui REST API Guidelines compliant APIs SHOULD support PATCH.
+acgroup REST API Guidelines compliant APIs SHOULD support PATCH.
 
 #### 1.4.3. Creating resources via PATCH (UPSERT semantics)
 Services that allow callers to specify key values on create SHOULD support UPSERT semantics, and those that do MUST support creating resources using PATCH.
@@ -120,7 +120,7 @@ Where {help} is the URL to a documentation resource.
 For examples on use of OPTIONS, see [preflighting CORS cross-domain calls][cors-preflight].
 
 ### 1.5. Standard request headers
-The table of request headers below SHOULD be used by Anvui REST API Guidelines services.
+The table of request headers below SHOULD be used by acgroup REST API Guidelines services.
 Using these headers is not mandated, but if used they MUST be used consistently.
 
 All header values MUST follow the syntax rules set forth in the specification where the header field is defined.
@@ -196,6 +196,6 @@ Accept Header    | Response type                      | Notes
 application/json | Payload SHOULD be returned as JSON | Also accept text/javascript for JSONP cases
 
 ```http
-GET https://api.anvui.vn/v1.0/products/user
+GET https://api.acgroup.vn/v1.0/products/user
 Accept: application/json
 ```
